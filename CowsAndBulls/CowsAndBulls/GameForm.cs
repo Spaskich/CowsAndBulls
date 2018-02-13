@@ -26,9 +26,13 @@ namespace CowsAndBulls
 
         private bool isGameOver;
 
-        public GameForm(string difficulty)
+        private Player player;
+
+        public GameForm(string difficulty, string username)
         {
             InitializeComponent();
+
+            player = new Player(username);
 
             this.difficulty = difficulty;
             switch (difficulty)
@@ -49,7 +53,7 @@ namespace CowsAndBulls
 
             isGameOver = false;
             
-            actionsLog.AppendText(String.Format("Player started a new game. Difficulty: {0}.\n", this.difficulty));
+            actionsLog.AppendText(String.Format("{0} started a new game. Difficulty: {1}.\n", player.Username, this.difficulty));
         }
 
         private void GameForm_Load(object sender, EventArgs e)
@@ -126,6 +130,9 @@ namespace CowsAndBulls
                 int cows = cowsAndBulls[0];
                 int bulls = cowsAndBulls[1];
 
+                //add 1 point for each bull
+                player.AddScore((uint)bulls);
+
                 LogResult(cows, bulls);
             }
 
@@ -175,7 +182,16 @@ namespace CowsAndBulls
 
         private void GameOver(string winner)
         {
+            player.PlayGame();
+
+            if (winner == "Player")
+            {
+                winner = player.Username;
+                player.AddScore(50);
+            }
+
             actionsLog.AppendText(String.Format("Game over! {0} won!\n", winner));
+            actionsLog.AppendText(String.Format("Player: {0}. Games played: {1}. Highscore: {2}", player.Username, player.GamesPlayed, player.HighScore));
 
             guessBtn.Hide();
         }

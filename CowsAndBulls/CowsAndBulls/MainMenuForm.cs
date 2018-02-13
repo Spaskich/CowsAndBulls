@@ -32,7 +32,19 @@ namespace CowsAndBulls
 
         private void PlayBtn_Click(object sender, EventArgs e)
         {
-            var gameForm = new GameForm(chosenDifficulty.SelectedItem.ToString());
+            string username;
+
+            if (usernameTextbox.Text.Length == 0)
+            {
+                //set default username
+                username = "Guest";
+            }
+            else
+            {
+                username = usernameTextbox.Text;
+            }
+
+            var gameForm = new GameForm(chosenDifficulty.SelectedItem.ToString(), username);
             gameForm.Location = this.Location;
             gameForm.StartPosition = FormStartPosition.Manual;
             gameForm.FormClosing += delegate { this.Show(); };
