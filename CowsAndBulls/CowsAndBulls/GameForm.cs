@@ -106,7 +106,8 @@ namespace CowsAndBulls
                 }
             }
 
-            actionsLog.AppendText(number + "\n");
+            //debug: show number
+            //actionsLog.AppendText(number + "\n");
             return number;
         }
 

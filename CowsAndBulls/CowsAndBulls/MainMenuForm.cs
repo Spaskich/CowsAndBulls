@@ -18,6 +18,8 @@ namespace CowsAndBulls
 
             //set default difficulty
             chosenDifficulty.SelectedItem = "Normal";
+
+            descriptionBox.Text = DescriptionBase.NormalDescription;
         }
 
         private void quitBtn_Click(object sender, EventArgs e)
@@ -66,6 +68,21 @@ namespace CowsAndBulls
             highScoresForm.FormClosing += delegate { this.Show(); };
             highScoresForm.Show();
             this.Hide();
+        }
+
+        private void chosenDifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (chosenDifficulty.Text)
+            {
+                case "Normal":
+                    descriptionBox.Text = DescriptionBase.NormalDescription;
+                    break;
+                case "Hard":
+                    descriptionBox.Text = DescriptionBase.HardDescription;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

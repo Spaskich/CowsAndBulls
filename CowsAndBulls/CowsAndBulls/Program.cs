@@ -23,6 +23,8 @@ namespace CowsAndBulls
                 PlayerBase.InitializePlayerBase();
             }
 
+            DescriptionBase.Read();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenuForm());

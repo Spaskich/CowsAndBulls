@@ -30,6 +30,8 @@
         {
             this.quitBtn = new System.Windows.Forms.Button();
             this.highScoresLog = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // quitBtn
@@ -46,31 +48,44 @@
             // highScoresLog
             // 
             this.highScoresLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.highScoresLog.Location = new System.Drawing.Point(12, 12);
+            this.highScoresLog.Location = new System.Drawing.Point(6, 25);
             this.highScoresLog.Multiline = true;
             this.highScoresLog.Name = "highScoresLog";
             this.highScoresLog.ReadOnly = true;
             this.highScoresLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.highScoresLog.Size = new System.Drawing.Size(1240, 601);
+            this.highScoresLog.Size = new System.Drawing.Size(1227, 569);
             this.highScoresLog.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.highScoresLog);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1239, 600);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "High Scores";
             // 
             // HighScoresForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.quitBtn);
-            this.Controls.Add(this.highScoresLog);
             this.Name = "HighScoresForm";
-            this.Text = "HighScoresForm";
+            this.Text = "Cows and Bulls";
             this.Load += new System.EventHandler(this.HighScoresForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.TextBox highScoresLog;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
