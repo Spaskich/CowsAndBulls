@@ -45,36 +45,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DescriptionBase.cs" />
-    <Compile Include="HighScoresForm.cs">
+    <Compile Include="Database\DescriptionBase.cs" />
+    <Compile Include="Forms\HighScoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HighScoresForm.Designer.cs">
+    <Compile Include="Forms\HighScoresForm.Designer.cs">
       <DependentUpon>HighScoresForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayerBase.cs" />
-    <Compile Include="GameForm.cs">
+    <Compile Include="Database\PlayerBase.cs" />
+    <Compile Include="Forms\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameForm.Designer.cs">
+    <Compile Include="Forms\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="Forms\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
+    <Compile Include="Forms\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GameForm.resx">
+    <EmbeddedResource Include="Forms\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HighScoresForm.resx">
+    <EmbeddedResource Include="Forms\HighScoresForm.resx">
       <DependentUpon>HighScoresForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
+    <EmbeddedResource Include="Forms\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
