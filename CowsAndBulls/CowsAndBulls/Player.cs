@@ -39,7 +39,10 @@ namespace CowsAndBulls
 
         public uint GamesPlayed
         {
-            get;
+            get
+            {
+                return this.gamesPlayed;
+            }
         }
 
         public uint HighScore
