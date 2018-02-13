@@ -189,8 +189,12 @@ namespace CowsAndBulls
             if (winner == "Player")
             {
                 winner = player.Username;
-                player.AddScore(50);
+
+                //add 50 points for winning
+                currentScore += 50;
             }
+
+            player.AddScore(currentScore);
 
             actionsLog.AppendText(String.Format("Game over! {0} won!\n", winner));
             actionsLog.AppendText(String.Format("Player: {0}. Games played: {1}. Highscore: {2}", player.Username, player.GamesPlayed, player.HighScore));

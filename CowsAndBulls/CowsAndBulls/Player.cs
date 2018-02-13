@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CowsAndBulls
 {
+    [Serializable()]
     class Player
     {
         private string username;

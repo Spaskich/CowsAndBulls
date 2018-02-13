@@ -101,7 +101,6 @@
             this.userLabel.Size = new System.Drawing.Size(200, 42);
             this.userLabel.TabIndex = 10;
             this.userLabel.Text = "Username:";
-            this.userLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // usernameTextbox
             // 
