@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CowsAndBulls
 {
     [Serializable()]
-    class Player
+    class Player : IComparable<Player>
     {
         private string username;
         private uint gamesPlayed;
@@ -64,6 +64,11 @@ namespace CowsAndBulls
             {
                 this.highScore = score;
             }
+        }
+
+        public int CompareTo(Player other)
+        {
+            return this.Username.CompareTo(other.Username);
         }
     }
 }
