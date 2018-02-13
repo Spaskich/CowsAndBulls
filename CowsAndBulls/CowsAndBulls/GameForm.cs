@@ -138,12 +138,12 @@ namespace CowsAndBulls
                         break;
                 }
 
-                LogResult(cows, bulls);
-            }
+                LogResult(cows, bulls, guessedNumber);
 
-            if (maxTurns == ++turnsPlayed)
-            {
-                GameOver("Computer");
+                if (maxTurns == ++turnsPlayed)
+                {
+                    GameOver("Computer");
+                }
             }
         }
 
@@ -220,15 +220,15 @@ namespace CowsAndBulls
             player.PlayGame();
             player.AddScore(currentScore);
 
-            actionsLog.AppendText(String.Format("Game over! {0} won!\n", winner));
-            actionsLog.AppendText(String.Format("Player: {0}. Games played: {1}. Highscore: {2}", player.Username, player.GamesPlayed, player.HighScore));
+            actionsLog.AppendText(String.Format("Game over! {0} won! The number was: {1}\n", winner, generatedNumber));
+            actionsLog.AppendText(String.Format("Player: {0}. Games played: {1}. Highscore: {2}\n", player.Username, player.GamesPlayed, player.HighScore));
 
             guessBtn.Hide();
         }
 
-        private void LogResult(int cows, int bulls)
+        private void LogResult(int cows, int bulls, string guessedNumber)
         {
-            actionsLog.AppendText(String.Format("Cows: {0}, Bulls: {1}\n", cows, bulls));
+            actionsLog.AppendText(String.Format("Guess: {0}. Cows: {1}, Bulls: {2}\n", guessedNumber, cows, bulls));
         }
     }
 }
