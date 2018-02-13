@@ -15,6 +15,9 @@ namespace CowsAndBulls
         public MainMenuForm()
         {
             InitializeComponent();
+
+            //set default difficulty
+            chosenDifficulty.SelectedItem = "Normal";
         }
 
         private void quitBtn_Click(object sender, EventArgs e)
@@ -29,7 +32,7 @@ namespace CowsAndBulls
 
         private void PlayBtn_Click(object sender, EventArgs e)
         {
-            var gameForm = new StartGameForm();
+            var gameForm = new GameForm(chosenDifficulty.SelectedItem.ToString());
             gameForm.Location = this.Location;
             gameForm.StartPosition = FormStartPosition.Manual;
             gameForm.FormClosing += delegate { this.Show(); };

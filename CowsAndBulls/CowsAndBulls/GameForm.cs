@@ -24,6 +24,8 @@ namespace CowsAndBulls
         private int turnsPlayed;
         private int maxTurns;
 
+        private bool isGameOver;
+
         public GameForm(string difficulty)
         {
             InitializeComponent();
@@ -32,10 +34,10 @@ namespace CowsAndBulls
             switch (difficulty)
             {
                 case "Normal":
-                    maxTurns = 10;
+                    maxTurns = 15;
                     break;
                 case "Hard":
-                    maxTurns = 5;
+                    maxTurns = 10;
                     break;
                 default:
                     break;
@@ -45,6 +47,8 @@ namespace CowsAndBulls
             this.generatedNumber = GenerateNumber(this.difficulty, this.generatedNumberLength);
             turnsPlayed = 0;
 
+            isGameOver = false;
+            
             actionsLog.AppendText(String.Format("Player started a new game. Difficulty: {0}.\n", this.difficulty));
         }
 
@@ -60,8 +64,18 @@ namespace CowsAndBulls
                 digit3.Value.ToString() +
                 digit4.Value.ToString();
 
-            CountCowsAndBulls(guessedNumber);
+            HandleTurn(guessedNumber);
         }
+
+        private void quitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //protected override void OnClosed(EventArgs e)
+        //{
+        //    Application.Exit();
+        //}
 
         private string GenerateNumber(string difficulty, int numberLength)
         {
@@ -100,53 +114,63 @@ namespace CowsAndBulls
             return number;
         }
 
-        private void CountCowsAndBulls(string guessedNumber)
+        private void HandleTurn(string guessedNumber)
         {
-            if (maxTurns < ++turnsPlayed)
-            {
-                GameOver("Computer");
-            }
-            else if (guessedNumber == this.generatedNumber)
+            if (guessedNumber == this.generatedNumber)
             {
                 GameOver("Player");
             }
             else
             {
-                int bulls = 0;
-                int cows = 0;
+                int[] cowsAndBulls = CountCowsAndBulls();
+                int cows = cowsAndBulls[0];
+                int bulls = cowsAndBulls[1];
 
-                bool[] isGuessVisted = new bool[generatedNumber.Length];
-                bool[] isNumVisted = new bool[generatedNumber.Length];
-
-                // count bulls and cows
-                for (int i = 0; i < generatedNumber.Length; i++)
-                {
-                    if (guessedNumber[i] == generatedNumber[i])
-                    {
-                        bulls++;
-                        isGuessVisted[i] = true; // set that we have visited this digit at index i
-                        isNumVisted[i] = true; // set that we have visited this digit at index i
-                    }
-                }
-
-                for (int i = 0; i < guessedNumber.Length; i++)
-                {
-                    for (int j = 0; j < generatedNumber.Length; j++)
-                    {
-                        if (i != j &&
-                            !isNumVisted[j] &&
-                            !isGuessVisted[i] &&
-                            guessedNumber[i] == generatedNumber[j]) // check if digits are the same
-                        {
-                            cows++;
-                            isGuessVisted[i] = true; // set that we have visited this digit at index i
-                            isNumVisted[j] = true; // set that we have visited this digit at index j
-                        }
-                    }
-                }
-
-                actionsLog.AppendText(String.Format("Cows: {0}, Bulls: {1}\n", cows, bulls));
+                LogResult(cows, bulls);
             }
+
+            if (maxTurns == ++turnsPlayed)
+            {
+                GameOver("Computer");
+            }
+        }
+
+        private int[] CountCowsAndBulls()
+        {
+            int bulls = 0;
+            int cows = 0;
+
+            bool[] isGuessVisted = new bool[generatedNumber.Length];
+            bool[] isNumVisted = new bool[generatedNumber.Length];
+
+            // count bulls and cows
+            for (int i = 0; i < generatedNumber.Length; i++)
+            {
+                if (guessedNumber[i] == generatedNumber[i])
+                {
+                    bulls++;
+                    isGuessVisted[i] = true; // set that we have visited this digit at index i
+                    isNumVisted[i] = true; // set that we have visited this digit at index i
+                }
+            }
+
+            for (int i = 0; i < guessedNumber.Length; i++)
+            {
+                for (int j = 0; j < generatedNumber.Length; j++)
+                {
+                    if (i != j &&
+                        !isNumVisted[j] &&
+                        !isGuessVisted[i] &&
+                        guessedNumber[i] == generatedNumber[j]) // check if digits are the same
+                    {
+                        cows++;
+                        isGuessVisted[i] = true; // set that we have visited this digit at index i
+                        isNumVisted[j] = true; // set that we have visited this digit at index j
+                    }
+                }
+            }
+
+            return new int[] { cows, bulls };
         }
 
         private void GameOver(string winner)
@@ -154,6 +178,11 @@ namespace CowsAndBulls
             actionsLog.AppendText(String.Format("Game over! {0} won!\n", winner));
 
             guessBtn.Hide();
+        }
+
+        private void LogResult(int cows, int bulls)
+        {
+            actionsLog.AppendText(String.Format("Cows: {0}, Bulls: {1}\n", cows, bulls));
         }
     }
 }

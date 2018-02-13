@@ -35,6 +35,7 @@
             this.digit3 = new System.Windows.Forms.NumericUpDown();
             this.digit4 = new System.Windows.Forms.NumericUpDown();
             this.guessBtn = new System.Windows.Forms.Button();
+            this.quitBtn = new System.Windows.Forms.Button();
             this.actionsLogPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.digit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.digit2)).BeginInit();
@@ -67,46 +68,49 @@
             // digit1
             // 
             this.digit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.digit1.Location = new System.Drawing.Point(20, 620);
+            this.digit1.Location = new System.Drawing.Point(12, 319);
             this.digit1.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.digit1.Name = "digit1";
+            this.digit1.ReadOnly = true;
             this.digit1.Size = new System.Drawing.Size(120, 49);
             this.digit1.TabIndex = 1;
             // 
             // digit2
             // 
             this.digit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.digit2.Location = new System.Drawing.Point(146, 620);
+            this.digit2.Location = new System.Drawing.Point(13, 374);
             this.digit2.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.digit2.Name = "digit2";
+            this.digit2.ReadOnly = true;
             this.digit2.Size = new System.Drawing.Size(120, 49);
             this.digit2.TabIndex = 2;
             // 
             // digit3
             // 
             this.digit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.digit3.Location = new System.Drawing.Point(272, 620);
+            this.digit3.Location = new System.Drawing.Point(12, 429);
             this.digit3.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.digit3.Name = "digit3";
+            this.digit3.ReadOnly = true;
             this.digit3.Size = new System.Drawing.Size(120, 49);
             this.digit3.TabIndex = 3;
             // 
             // digit4
             // 
             this.digit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.digit4.Location = new System.Drawing.Point(398, 620);
+            this.digit4.Location = new System.Drawing.Point(12, 484);
             this.digit4.Maximum = new decimal(new int[] {
             9,
             0,
@@ -120,7 +124,7 @@
             // guessBtn
             // 
             this.guessBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.guessBtn.Location = new System.Drawing.Point(524, 620);
+            this.guessBtn.Location = new System.Drawing.Point(138, 484);
             this.guessBtn.Name = "guessBtn";
             this.guessBtn.Size = new System.Drawing.Size(150, 50);
             this.guessBtn.TabIndex = 5;
@@ -128,11 +132,23 @@
             this.guessBtn.UseVisualStyleBackColor = true;
             this.guessBtn.Click += new System.EventHandler(this.guessBtn_Click);
             // 
+            // quitBtn
+            // 
+            this.quitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.quitBtn.Location = new System.Drawing.Point(952, 619);
+            this.quitBtn.Name = "quitBtn";
+            this.quitBtn.Size = new System.Drawing.Size(300, 50);
+            this.quitBtn.TabIndex = 6;
+            this.quitBtn.Text = "Main menu";
+            this.quitBtn.UseVisualStyleBackColor = true;
+            this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.guessBtn);
             this.Controls.Add(this.digit4);
             this.Controls.Add(this.digit3);
@@ -161,5 +177,6 @@
         private System.Windows.Forms.NumericUpDown digit3;
         private System.Windows.Forms.NumericUpDown digit4;
         private System.Windows.Forms.Button guessBtn;
+        private System.Windows.Forms.Button quitBtn;
     }
 }

@@ -31,6 +31,8 @@
             this.PlayBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
             this.highScoresBtn = new System.Windows.Forms.Button();
+            this.difficultyLabel = new System.Windows.Forms.Label();
+            this.chosenDifficulty = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // PlayBtn
@@ -65,11 +67,36 @@
             this.highScoresBtn.Text = "High Scores";
             this.highScoresBtn.UseVisualStyleBackColor = true;
             // 
+            // difficultyLabel
+            // 
+            this.difficultyLabel.AutoSize = true;
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.difficultyLabel.Location = new System.Drawing.Point(5, 308);
+            this.difficultyLabel.Name = "difficultyLabel";
+            this.difficultyLabel.Size = new System.Drawing.Size(168, 42);
+            this.difficultyLabel.TabIndex = 8;
+            this.difficultyLabel.Text = "Difficulty:";
+            // 
+            // chosenDifficulty
+            // 
+            this.chosenDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chosenDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chosenDifficulty.FormattingEnabled = true;
+            this.chosenDifficulty.Items.AddRange(new object[] {
+            "Normal",
+            "Hard"});
+            this.chosenDifficulty.Location = new System.Drawing.Point(12, 353);
+            this.chosenDifficulty.Name = "chosenDifficulty";
+            this.chosenDifficulty.Size = new System.Drawing.Size(200, 50);
+            this.chosenDifficulty.TabIndex = 7;
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.difficultyLabel);
+            this.Controls.Add(this.chosenDifficulty);
             this.Controls.Add(this.highScoresBtn);
             this.Controls.Add(this.quitBtn);
             this.Controls.Add(this.PlayBtn);
@@ -77,6 +104,7 @@
             this.Text = "Cows and Bulls";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,6 +113,8 @@
         private System.Windows.Forms.Button PlayBtn;
         private System.Windows.Forms.Button quitBtn;
         private System.Windows.Forms.Button highScoresBtn;
+        private System.Windows.Forms.Label difficultyLabel;
+        private System.Windows.Forms.ComboBox chosenDifficulty;
     }
 }
 
