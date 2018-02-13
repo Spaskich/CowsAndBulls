@@ -27,12 +27,14 @@ namespace CowsAndBulls
         private bool isGameOver;
 
         private Player player;
+        private uint currentScore;
 
         public GameForm(string difficulty, string username)
         {
             InitializeComponent();
 
             player = new Player(username);
+            currentScore = 0;
 
             this.difficulty = difficulty;
             switch (difficulty)
@@ -131,7 +133,7 @@ namespace CowsAndBulls
                 int bulls = cowsAndBulls[1];
 
                 //add 1 point for each bull
-                player.AddScore((uint)bulls);
+                currentScore += (uint)bulls;
 
                 LogResult(cows, bulls);
             }

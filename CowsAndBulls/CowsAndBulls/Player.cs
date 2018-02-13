@@ -16,6 +16,7 @@ namespace CowsAndBulls
         {
             this.Username = username;
             this.gamesPlayed = 0;
+            this.highScore = 0;
         }
 
         public string Username
@@ -55,7 +56,10 @@ namespace CowsAndBulls
 
         public void AddScore(uint score)
         {
-            this.highScore += score;
+            if (this.highScore < score)
+            {
+                this.highScore = score;
+            }
         }
     }
 }
