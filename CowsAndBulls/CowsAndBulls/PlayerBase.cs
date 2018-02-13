@@ -23,8 +23,6 @@ namespace CowsAndBulls
             {
                 playerBase.AddLast(player);
             }
-
-            playerBase.OrderByDescending(p => p.Username);
         }
 
         public static Player GetPlayer(string username)

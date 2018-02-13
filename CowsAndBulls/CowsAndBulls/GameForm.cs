@@ -131,7 +131,7 @@ namespace CowsAndBulls
                         break;
                     case "Hard":
                         // add 2 points on Hard mode
-                        currentScore += (uint)bulls;
+                        currentScore += (uint)bulls * 2;
                         break;
                     default:
                         break;

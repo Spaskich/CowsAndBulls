@@ -19,7 +19,7 @@ namespace CowsAndBulls
 
         private void HighScoresForm_Load(object sender, EventArgs e)
         {
-            foreach (var player in PlayerBase.GetPlayerBase())
+            foreach (var player in PlayerBase.GetPlayerBase().OrderByDescending(p => p.HighScore))
             {
                 highScoresLog.AppendText(String.Format("- Player: {0}. Games player: {1}. Highscore: {2}\n", 
                     player.Username,

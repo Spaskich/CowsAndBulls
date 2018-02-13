@@ -28,20 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.highScoresLog = new System.Windows.Forms.TextBox();
             this.quitBtn = new System.Windows.Forms.Button();
+            this.highScoresLog = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // highScoresLog
-            // 
-            this.highScoresLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.highScoresLog.Location = new System.Drawing.Point(12, 12);
-            this.highScoresLog.Multiline = true;
-            this.highScoresLog.Name = "highScoresLog";
-            this.highScoresLog.ReadOnly = true;
-            this.highScoresLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.highScoresLog.Size = new System.Drawing.Size(1240, 601);
-            this.highScoresLog.TabIndex = 1;
             // 
             // quitBtn
             // 
@@ -53,6 +42,17 @@
             this.quitBtn.Text = "Main menu";
             this.quitBtn.UseVisualStyleBackColor = true;
             this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
+            // 
+            // highScoresLog
+            // 
+            this.highScoresLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.highScoresLog.Location = new System.Drawing.Point(12, 12);
+            this.highScoresLog.Multiline = true;
+            this.highScoresLog.Name = "highScoresLog";
+            this.highScoresLog.ReadOnly = true;
+            this.highScoresLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.highScoresLog.Size = new System.Drawing.Size(1240, 601);
+            this.highScoresLog.TabIndex = 1;
             // 
             // HighScoresForm
             // 
@@ -70,8 +70,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox highScoresLog;
         private System.Windows.Forms.Button quitBtn;
+        private System.Windows.Forms.TextBox highScoresLog;
     }
 }
