@@ -212,10 +212,8 @@ namespace CowsAndBulls
                 {
                     PlayerBase.AddPlayer(player);
                 }
-                else
-                {
-                    player = PlayerBase.GetPlayer(player.Username);
-                }
+
+                player = PlayerBase.GetPlayer(player.Username);
             }
 
             player.PlayGame();
