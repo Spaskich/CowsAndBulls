@@ -68,6 +68,7 @@
             this.highScoresBtn.TabIndex = 2;
             this.highScoresBtn.Text = "High Scores";
             this.highScoresBtn.UseVisualStyleBackColor = true;
+            this.highScoresBtn.Click += new System.EventHandler(this.highScoresBtn_Click);
             // 
             // difficultyLabel
             // 

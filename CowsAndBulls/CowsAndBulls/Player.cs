@@ -28,9 +28,9 @@ namespace CowsAndBulls
             }
             set
             {
-                if (value.Length > 10)
+                if (value.Length > 20)
                 {
-                    value = value.Substring(0, 10);
+                    value = value.Substring(0, 20);
                 }
 
                 this.username = value;

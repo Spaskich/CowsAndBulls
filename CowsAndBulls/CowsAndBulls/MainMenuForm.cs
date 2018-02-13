@@ -22,6 +22,12 @@ namespace CowsAndBulls
 
         private void quitBtn_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            PlayerBase.SerializePlayerBase();
             Application.Exit();
         }
 
@@ -49,6 +55,16 @@ namespace CowsAndBulls
             gameForm.StartPosition = FormStartPosition.Manual;
             gameForm.FormClosing += delegate { this.Show(); };
             gameForm.Show();
+            this.Hide();
+        }
+
+        private void highScoresBtn_Click(object sender, EventArgs e)
+        {
+            var highScoresForm = new HighScoresForm();
+            highScoresForm.Location = this.Location;
+            highScoresForm.StartPosition = FormStartPosition.Manual;
+            highScoresForm.FormClosing += delegate { this.Show(); };
+            highScoresForm.Show();
             this.Hide();
         }
     }

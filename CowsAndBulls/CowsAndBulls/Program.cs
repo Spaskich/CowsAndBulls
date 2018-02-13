@@ -14,6 +14,15 @@ namespace CowsAndBulls
         [STAThread]
         static void Main()
         {
+            try
+            {
+                PlayerBase.DeserializePlayerBase();
+            }
+            catch (Exception)
+            {
+                PlayerBase.InitializePlayerBase();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenuForm());

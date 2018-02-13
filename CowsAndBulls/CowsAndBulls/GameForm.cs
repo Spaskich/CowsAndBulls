@@ -19,12 +19,8 @@ namespace CowsAndBulls
         private string generatedNumber;
         private string guessedNumber;
 
-        private int[] cowsAndBulls;
-
         private int turnsPlayed;
         private int maxTurns;
-
-        private bool isGameOver;
 
         private Player player;
         private uint currentScore;
@@ -34,6 +30,7 @@ namespace CowsAndBulls
             InitializeComponent();
 
             player = new Player(username);
+            
             currentScore = 0;
 
             this.difficulty = difficulty;
@@ -52,8 +49,6 @@ namespace CowsAndBulls
             this.generatedNumberLength = 4;
             this.generatedNumber = GenerateNumber(this.difficulty, this.generatedNumberLength);
             turnsPlayed = 0;
-
-            isGameOver = false;
             
             actionsLog.AppendText(String.Format("{0} started a new game. Difficulty: {1}.\n", player.Username, this.difficulty));
         }
@@ -77,11 +72,6 @@ namespace CowsAndBulls
         {
             this.Close();
         }
-
-        //protected override void OnClosed(EventArgs e)
-        //{
-        //    Application.Exit();
-        //}
 
         private string GenerateNumber(string difficulty, int numberLength)
         {
@@ -132,8 +122,20 @@ namespace CowsAndBulls
                 int cows = cowsAndBulls[0];
                 int bulls = cowsAndBulls[1];
 
-                //add 1 point for each bull
-                currentScore += (uint)bulls;
+                // add points for each bull
+                switch (difficulty)
+                {
+                    case "Normal":
+                        // add 1 point on Normal mode
+                        currentScore += (uint)bulls;
+                        break;
+                    case "Hard":
+                        // add 2 points on Hard mode
+                        currentScore += (uint)bulls;
+                        break;
+                    default:
+                        break;
+                }
 
                 LogResult(cows, bulls);
             }
@@ -184,16 +186,39 @@ namespace CowsAndBulls
 
         private void GameOver(string winner)
         {
-            player.PlayGame();
-
             if (winner == "Player")
             {
                 winner = player.Username;
 
-                //add 50 points for winning
-                currentScore += 50;
+                // add points for winning
+                switch (difficulty)
+                {
+                    case "Normal":
+                        // add 50 points on Normal mode
+                        currentScore += 50;
+                        break;
+                    case "Hard":
+                        // add 100 points on Hard mode
+                        currentScore += 100;
+                        break;
+                    default:
+                        break;
+                }
             }
 
+            if (player.Username != "Guest")
+            {
+                if (!PlayerBase.ContainsPlayer(player.Username))
+                {
+                    PlayerBase.AddPlayer(player);
+                }
+                else
+                {
+                    player = PlayerBase.GetPlayer(player.Username);
+                }
+            }
+
+            player.PlayGame();
             player.AddScore(currentScore);
 
             actionsLog.AppendText(String.Format("Game over! {0} won!\n", winner));
