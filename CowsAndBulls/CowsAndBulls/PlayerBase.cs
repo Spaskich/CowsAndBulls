@@ -10,19 +10,21 @@ namespace CowsAndBulls
 {
     static class PlayerBase
     {
-        private static SortedSet<Player> playerBase;
+        private static LinkedList<Player> playerBase;
 
         public static void InitializePlayerBase()
         {
-            playerBase = new SortedSet<Player>();
+            playerBase = new LinkedList<Player>();
         }
 
         public static void AddPlayer(Player player)
         {
             if (!playerBase.Any(p => p.Username == player.Username))
             {
-                playerBase.Add(player);
+                playerBase.AddLast(player);
             }
+
+            playerBase.OrderByDescending(p => p.Username);
         }
 
         public static Player GetPlayer(string username)
@@ -59,7 +61,7 @@ namespace CowsAndBulls
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 
-                    playerBase = (SortedSet<Player>)bin.Deserialize(stream);
+                    playerBase = (LinkedList<Player>)bin.Deserialize(stream);
                 }
             }
             catch (FileNotFoundException)
@@ -72,7 +74,7 @@ namespace CowsAndBulls
             }
         }
 
-        public static SortedSet<Player> GetPlayerBase()
+        public static LinkedList<Player> GetPlayerBase()
         {
             return playerBase;
         }
