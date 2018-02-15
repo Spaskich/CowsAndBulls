@@ -1,6 +1,5 @@
 # Cows and Bulls
-A simple Bulls and Cows game created with Windows Forms and C# .NET
-Made by Spas Kalinov
+*Made by Spas Kalinov*
 
 **Cows and Bulls** is a simple Windows Forms game written in C#.
 
