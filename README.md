@@ -13,7 +13,7 @@
   - 10 turns for Hard mode.
 * Player creation with a high score functionality
 
-## Great, but how I play the game?
+## Great, but how can I play the game?
 All you need to do is go to the [release page](https://github.com/Spaskich/CowsAndBulls/releases) and download the latest build.
 
 There should be detailed information for downloading and starting the game.
